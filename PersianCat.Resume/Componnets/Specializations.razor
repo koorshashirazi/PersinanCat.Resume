@@ -1,0 +1,74 @@
+<div class="section px-3 px-lg-4 pt-5" id="specializations">
+
+    <div class="container-narrow">
+        <div class="text-center mb-5">
+            <h2 class="marker marker-center" style="cursor: pointer" @onclick="ToggleDiv">My Specializations</h2>
+        </div>
+        <div class="@_toggleClass">
+            <div class="text-center">
+                <p class="mx-auto mb-3" style="max-width:600px">I specialize in building high-performance, scalable, and
+                    secure applications using the .NET ecosystem. With a strong focus on efficiency and best practices,
+                    I
+                    deliver robust solutions tailored to meet business needs.</p>
+            </div>
+            <div class="row py-3">
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="400"
+                     title="Developing scalable and efficient .NET-based applications">
+                    <img class="mb-2" src="images/services/dotnet.svg" width="96" height="96" alt="app development"/>
+                    <div class="h5">.NET Development</div>
+                </div>
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="400"
+                     title="Designing and optimizing SQL and NoSQL databases">
+                    <img class="mb-2" src="images/services/database.svg" width="96" height="96" alt="Database"/>
+                    <div class="h5">Database</div>
+                </div>
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="100"
+                     title="Ensuring secure API communication">
+                    <img class="mb-2" src="images/services/security.svg" width="96" height="96" alt="web design"/>
+                    <div class="h5">Security & Authentication</div>
+                </div>
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="200"
+                     title="Deploying and managing cloud-based .NET solutions">
+                    <img class="mb-2" src="images/services/azure.svg" width="96" height="96" alt="Cloud & Azure"/>
+                    <div class="h5">Cloud & Azure</div>
+                </div>
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="200"
+                     title="Automating CI/CD pipelines with Azure DevOps">
+                    <img class="mb-2" src="images/services/azure-devops.svg" width="96" height="96" alt="DevOps"/>
+                    <div class="h5">DevOps</div>
+                </div>
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="300"
+                     title="Designing distributed and maintainable .NET architectures">
+                    <img class="mb-2" src="images/services/microservies.svg" width="96" height="96"
+                         alt="Microservices"/>
+                    <div class="h5">Microservices</div>
+                </div>
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="400"
+                     title="Structuring applications for performance and scalability">
+                    <img class="mb-2" src="images/services/architecture.svg" width="96" height="96"
+                         alt="Software architecture"/>
+                    <div class="h5">Software architecture</div>
+                </div>
+                <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="400"
+                     title="Ensuring reliability through automated and manual testing">
+                    <img class="mb-2" src="images/services/testing.svg" width="96" height="96" alt="Testing & Quality"/>
+                    <div class="h5">Testing & Quality</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@code {
+    private bool _isVisible = true; 
+    private string _toggleClass = "expanded";
+
+    private void ToggleDiv()
+    {
+        _isVisible = !_isVisible;
+        _toggleClass = _isVisible ? "expanded" : "collapsed";
+    }
+}

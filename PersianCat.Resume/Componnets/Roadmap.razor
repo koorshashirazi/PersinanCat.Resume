@@ -1,0 +1,478 @@
+<div class="roadmap-panel roadmap section px-3 px-lg-4 pt-5" id="roadmap">
+    <div class="text-center mb-5">
+        <h2 class="marker marker-center" style="cursor: pointer" @onclick="ToggleDiv">My Roadmap</h2>
+    </div>
+    <div class="roadmap-container row @_toggleClass">
+        <div class="roadmap-legend " data-aos="fade-right" data-aos-delay="100">
+            <div class="roadmap-legend-item">
+                <div class="roadmap-legend-dot roadmap-green"></div>
+                <span>Must have</span>
+            </div>
+            <div class="roadmap-legend-item">
+                <div class="roadmap-legend-dot roadmap-blue"></div>
+                <span>Good to have</span>
+            </div>
+            <div class="roadmap-legend-item">
+                <div class="roadmap-legend-dot roadmap-orange"></div>
+                <span>Optional</span>
+            </div>
+        </div>
+
+        <div class="roadmap-vertical-connector"></div>
+
+
+        <!-- Frontend Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="100">
+            <div class="roadmap-main-branch roadmap-must-have">Frontend</div>
+            <div class="roadmap-sub-branches">
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    HTML/CSS/Sass
+                    <div class="roadmap-sub-branch-details">Responsive Design, Flexbox, Grid</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    JavaScript
+                    <div class="roadmap-sub-branch-details">ES6+, Async/Await, DOM</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Build Tools
+                    <div class="roadmap-sub-branch-details">Webpack, npm, Package Management</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Angular Development
+                    <div class="roadmap-sub-branch-details">Components, Services, Routing</div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    TypeScript
+                    <div class="roadmap-sub-branch-details">Types, Interfaces, Generics</div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core ASP.NET Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">ASP.NET Core</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    MVC & WebAPI
+                    <div class="roadmap-sub-branch-details">Controllers, Routing, Actions, Filters</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Middleware Pipeline
+                    <div class="sub-branch-details">Custom Middleware, Error Handling</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Dependency Injection
+                    <div class="roadmap-sub-branch-details">Lifetime Management, Service Registration</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Configuration & Security
+                    <div class="roadmap-sub-branch-details">appsettings.json, User Secrets, SSL</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Razor Pages
+                    <div class="roadmap-sub-branch-details">Page Models, Handlers, View Components</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    SignalR
+                    <div class="roadmap-sub-branch-details">Real-time Communication, Hubs</div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Development Section (New) -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">API Development</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    REST APIs
+                    <div class="roadmap-sub-branch-details">HTTP Methods, Status Codes, Content Negotiation, HATEOAS,
+                        Swagger/OpenAPI, API
+                        Versioning
+                    </div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    GraphQL
+                    <div class="roadmap-sub-branch-details">Schema Definition, Resolvers, Mutations, Subscriptions, Hot
+                        Chocolate
+                        Implementation
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    gRPC
+                    <div class="roadmap-sub-branch-details">Protocol Buffers, Streaming, Service Definition,
+                        Client/Server
+                        Implementation
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Patterns Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">Design Patterns</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    SOLID Principles
+                    <div class="roadmap-sub-branch-details">Single Responsibility, Open-Closed, Liskov Substitution,
+                        Interface
+                        Segregation,
+                        Dependency Inversion
+                    </div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Architectural Patterns
+                    <div class="roadmap-sub-branch-details">Repository Pattern, Unit of Work, CQRS, Event Sourcing,
+                        Domain-Driven
+                        Design
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Enterprise Patterns
+                    <div class="roadmap-sub-branch-details">Specification Pattern, Factory Pattern, Builder Pattern,
+                        Strategy
+                        Pattern,
+                        Observer Pattern
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Access Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">Data Access Layer</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Entity Framework Core
+                    <div class="roadmap-sub-branch-details">Code First, Database First, Migrations, Complex
+                        Relationships,
+                        Lazy Loading, Eager Loading, Query Optimizatio
+                    </div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Advanced EF Core
+                    <div class="roadmap-sub-branch-details">Global Filters, Shadow Properties, Owned Entities, Table
+                        Splitting, Query Tags,
+                        Spatial Data
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    SQL Server
+                    <div class="roadmap-sub-branch-details">Stored Procedures, Indexing, Query Optimization</div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    MongoDB
+                    <div class="roadmap-sub-branch-details">Document DB, CRUD Operations</div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Redis
+                    <div class="roadmap-sub-branch-details">Caching, Session Storage, Pub/Sub</div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Dapper
+                    <div class="roadmap-sub-branch-details">Micro-ORM, Performance Optimization</div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Security & Authentication Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">Security & Authentication</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    Token-Based Authentication
+                    <div class="roadmap-sub-branch-details">JWT Implementation, Token Generation, Validation, Refresh
+                        Tokens, Token Storage,
+                        Claims-based Authentication
+                    </div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    OAuth 2.0 & OpenID Connect
+                    <div class="roadmap-sub-branch-details">Authorization Flows, Identity Providers, Client
+                        Registration,
+                        Scope Management,
+                        Token Exchange, Social Login Integration
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    Authorization & RBAC
+                    <div class="roadmap-sub-branch-details">Role-Based Access Control, Policy-Based Authorization,
+                        Custom
+                        Authorization
+                        Requirements, Resource-Based Authorization
+                    </div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    <div class="connection-dot"></div>
+                    Identity Management
+                    <div class="roadmap-sub-branch-details">ASP.NET Identity, User Management, Password Policies,
+                        Account
+                        Lockout, Two-Factor
+                        Authentication, External Authentication
+                    </div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    Security Best Practices
+                    <div class="roadmap-sub-branch-details">HTTPS Enforcement, XSS Prevention, CSRF Protection, SQL
+                        Injection Prevention,
+                        Security Headers, CORS Policy
+                    </div>
+                    <div class="roadmap-skill-level">Foundation Level</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    <div class="connection-dot"></div>
+                    API Security
+                    <div class="roadmap-sub-branch-details">Rate Limiting, API Keys, IP Filtering, Request Validation,
+                        API
+                        Documentation
+                        Security, Versioning Security
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-optional">
+                    <div class="connection-dot"></div>
+                    Cryptography
+                    <div class="roadmap-sub-branch-details">Data Protection APIs, Encryption/Decryption, Hashing, Key
+                        Management, Secure
+                        Random Number Generation
+                    </div>
+                    <div class="skill-level">Expert Level</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    <div class="connection-dot"></div>
+                    Security Monitoring
+                    <div class="roadmap-sub-branch-details">Logging Security Events, Audit Trails, Intrusion Detection,
+                        Security Analytics,
+                        Vulnerability Scanning
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cloud & Azure Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">Cloud & Azure</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Azure Services
+                    <div class="roadmap-sub-branch-details">App Service, Functions, Logic Apps</div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Azure Storage
+                    <div class="roadmap-sub-branch-details">Blobs, Tables, Queues</div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Azure Cosmos DB
+                    <div class="roadmap-sub-branch-details">Multi-model Database, Global Distribution</div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Key Vault & Security
+                    <div class="roadmap-sub-branch-details">Secrets Management, Certificates</div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Monitoring & Logging
+                    <div class="roadmap-sub-branch-details">Application Insights, Log Analytics</div>
+                    <div class="roadmap-skill-level">Expert Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DevOps Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">DevOps & Deployment</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    CI/CD
+                    <div class="sroadmap-ub-branch-details">Azure DevOps, GitHub Actions, Build Pipelines, Release
+                        Management
+                    </div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Containerization
+                    <div class="roadmap-sub-branch-details">Docker, Kubernetes, Container Orchestration, Service Mesh,
+                        Infrastructure as Code
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Cloud Platforms
+                    <div class="roadmap-sub-branch-details">Azure, AWS, Google Cloud, Cloud Design Patterns, Scalability
+                    </div>
+                    <div class="roadmap-skill-level">Expert Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Microservices Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">Microservices Architecture</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Message Brokers
+                    <div class="roadmap-sub-branch-details">RabbitMQ, Azure Service Bus, Implementation</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    API Gateway
+                    <div class="roadmap-sub-branch-details">Ocelot, YARP, Routing, Load Balancing</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Service Discovery
+                    <div class="roadmap-sub-branch-details">Consul, Service Registration</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Containerization
+                    <div class="roadmap-sub-branch-details">Docker, Docker Compose, AKS</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Distributed Tracing
+                    <div class="roadmap-sub-branch-details">OpenTelemetry, Monitoring</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testing Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">Testing & Quality</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Unit Testing
+                    <div class="roadmap-sub-branch-details">XUnit, NUnit, Test Patterns</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    Integration Testing
+                    <div class="roadmap-sub-branch-details">TestServer, WebApplicationFactory</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Test Automation
+                    <div class="roadmap-sub-branch-details">CI/CD Integration, Code Coverage</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Performance Testing
+                    <div class="roadmap-sub-branch-details">Load Testing, Benchmarking</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Section (New) -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">Performance & Optimization</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Caching Strategies
+                    <div class="roadmap-sub-branch-details">In-Memory Cache, Distributed Cache, Response Caching, Output
+                        Caching, Cache
+                        Invalidation
+                    </div>
+                    <div class="roadmap-skill-level">Intermediate Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    Memory Management
+                    <div class="roadmap-sub-branch-details">Garbage Collection, Memory Leaks, Pool Objects, Value Types
+                        vs
+                        Reference Types
+                    </div>
+                    <div class="roadmap-skill-level">Advanced Level</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Advanced Performance
+                    <div class="roadmap-sub-branch-details">Thread Pooling, Async I/O, SIMD, Hardware Intrinsics,
+                        Lock-free
+                        Algorithms
+                    </div>
+                    <div class="roadmap-skill-level">Expert Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proposed Timeline... -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-optional">Proposed Timeline...</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Next 3 months
+                    <div class="roadmap-sub-branch-details">Learn Azure AKS + Bicep</div>
+                    <div class="roadmap-skill-level">Expert Level</div>
+                </div>
+            </div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Next 6 months
+                    <div class="roadmap-sub-branch-details">Focus on Advanced DDD + Event-Driven</div>
+                    <div class="roadmap-skill-level">Expert Level</div>
+                </div>
+            </div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Next 9 months
+                    <div class="roadmap-sub-branch-details">Develop gRPC + Micro Frontend skills</div>
+                    <div class="roadmap-skill-level">Expert Level</div>
+                </div>
+            </div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    Next 12 months
+                    <div class="roadmap-sub-branch-details">Move towards Technical Leadership</div>
+                    <div class="roadmap-skill-level">Expert Level</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ************************************************************************************************************* -->
+    <!-- END Roadmap -->
+
+</div>
+
+@code {
+    private bool _isVisible = true;
+    private string _toggleClass = "expanded";
+
+    private void ToggleDiv()
+    {
+        _isVisible = !_isVisible;
+        _toggleClass = _isVisible ? "expanded" : "collapsed";
+    }
+}

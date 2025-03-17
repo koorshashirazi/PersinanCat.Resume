@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- upto 2 directory depth-->
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Persian Cat</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap" media="print"
+        onload="this.media='all'"/>
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap"/>
+  </noscript>
+  <link href="./css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/bootstrap-icons/bootstrap-icons.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/aos.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/main.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/blazor.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/roadmap.css?ver=1.2.0" rel="stylesheet">
+
+  <noscript>
+    <style type="text/css">
+      [data-aos] {
+        opacity: 1 !important;
+        transform: translate(0) scale(1) !important;
+      }
+    </style>
+  </noscript>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D1E4WT8H1B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      try {
+        dataLayer.push(arguments);
+      }
+      catch (e) {
+
+      }
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-D1E4WT8H1B');
+  </script>
+
+</head>
+
+<body id="top">
+
+<div id="app">
+  <svg class="loading-progress">
+    <circle r="40%" cx="50%" cy="50%"/>
+    <circle r="40%" cx="50%" cy="50%"/>
+  </svg>
+  <div class="loading-progress-text"></div>
+</div>
+
+<div id="blazor-error-ui">
+  An unhandled error has occurred.
+  <a href="." class="reload">Reload</a>
+  <span class="dismiss">🗙</span>
+</div>
+
+<script src="_framework/blazor.webassembly.js"></script>
+
+<script defer>
+
+
+  function loadScript(src, callback) {
+    let script = document.createElement("script");
+    script.src = src;
+    if (callback) {
+      script.onload = callback;
+    }
+    document.body.appendChild(script);
+  }
+
+  window.onload = function () {
+    let scripts = [
+      "./scripts/imagesloaded.pkgd.min.js",
+      "./scripts/masonry.pkgd.min.js",
+      "./scripts/BigPicture.min.js",
+      "./scripts/purecounter.min.js",
+      "./scripts/bootstrap.bundle.min.js",
+      "./scripts/aos.min.js",
+      "./scripts/main.js"
+    ];
+    for (const scriptPath of scripts) {
+      loadScript(scriptPath);
+    }
+  };
+
+  if (window.location.pathname.includes("/")) {
+    // loadScript()
+  }
+
+
+</script>
+
+</body>
+
+</html>

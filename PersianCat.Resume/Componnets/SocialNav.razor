@@ -1,0 +1,47 @@
+@using PersianCat.Resume.Services
+@inject IGoogleAnalyticsService GoogleAnalyticsService
+
+<div class="social-nav" data-aos="fade-up" data-aos-delay="200">
+    <nav role="navigation">
+        <ul class="nav justify-content-left">
+            <li class="nav-item"><a class="nav-link"
+                                    @onclick="() => EventAction(GitHub)"
+                                    href="@GitHub" target="_blank"
+                                    title="GitHub"><i class="fab fa-github"></i><span
+                        class="menu-title sr-only">Github</span></a>
+            </li>
+            <li class="nav-item"><a class="nav-link"
+                                    @onclick="() => EventAction(Nuget)"
+                                    href="@Nuget" target="_blank"
+                                    title="Nuget"><i class="fab fa-microsoft"></i><span
+                        class="menu-title sr-only">Nuget</span></a></li>
+            <li class="nav-item"><a class="nav-link"
+                                    @onclick="() => EventAction(LinkedIn)"
+                                    href="@LinkedIn" target="_blank"
+                                    title="LinkedIn"><i
+                        class="fab fa-linkedin"></i><span
+                        class="menu-title sr-only">LinkedIn</span></a></li>
+            <li class="nav-item"><a class="nav-link"
+                                    @onclick="() => EventAction(Xing)"
+                                    href="@Xing" target="_blank"
+                                    title="Xing"><i class="fab fa-xing"></i><span
+                        class="menu-title sr-only">Xing</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+@code {
+    private const string GitHub = "https://github.com/koorshashirazi";
+    private const string Nuget = "https://www.nuget.org/packages?q=Kharazmi&includeComputedFrameworks=true&prerel=true&";
+    private const string LinkedIn = "https://www.linkedin.com/in/koorsha-shirazi/";
+    private const string Xing = "https://www.xing.com/profile/Javad_Bagheri01657/web_profiles?expandNeffi=true";
+
+
+    private void EventAction(string name)
+    {
+        Task.Run(async () => await GoogleAnalyticsService.TrackEvent("navigation", "click", name).ConfigureAwait(false)).ConfigureAwait((false));
+    }
+
+}

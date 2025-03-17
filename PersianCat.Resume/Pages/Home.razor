@@ -1,0 +1,39 @@
+﻿@page "/"
+@using PersianCat.Resume.Services
+
+@implements IAsyncDisposable
+
+@inject TimeOnPageTracker TimeTracker
+
+
+<PageTitle>@Title</PageTitle>
+
+
+<div id="content">
+    <Header></Header>
+    <About></About>
+    <Specializations></Specializations>
+    <Skills></Skills>
+    <Experience></Experience>
+    <Roadmap></Roadmap>
+    <Contact></Contact>
+    <Footer></Footer>
+</div>
+
+@code {
+
+    private const string Title = "PersianCat";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await TimeTracker.StartTracking(Title).ConfigureAwait(false);
+        await base.OnInitializedAsync();
+    }
+
+
+    public async ValueTask DisposeAsync()
+    {
+        await TimeTracker.EndTracking();
+    }
+
+}

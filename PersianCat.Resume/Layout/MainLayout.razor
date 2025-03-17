@@ -1,0 +1,28 @@
+﻿@inherits LayoutComponentBase
+@inject JavaScriptInterop JsInterop
+
+<HeaderNav></HeaderNav>
+
+<div class="page-content">
+    
+    @Body
+
+    <ScrollTop></ScrollTop>
+</div>
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JsInterop.InitializeAOS();
+            await JsInterop.HandleScroll();
+            await JsInterop.InitializeMasonry();
+            await JsInterop.InitializeBigPicture();
+            await JsInterop.InitializeGalleryPopup();
+        }
+    }
+}
+
+
