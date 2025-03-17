@@ -289,3 +289,8 @@ footer a:not(.nav-link) {
   left: 45%;
   position: relative;
 }
+
+[data-aos] {
+  opacity: 1 !important;
+  transform: translate(0) scale(1) !important;
+}

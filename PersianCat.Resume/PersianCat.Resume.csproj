@@ -6,9 +6,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <!--        <RunAOTCompilation>true</RunAOTCompilation>-->
         <!--        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>-->
-        <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
-        <BlazorWebAssemblyPreserveCollationData>false</BlazorWebAssemblyPreserveCollationData>
-        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+<!--        <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>-->
+<!--        <BlazorWebAssemblyPreserveCollationData>false</BlazorWebAssemblyPreserveCollationData>-->
+<!--        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>-->
         <CompressionEnabled>true</CompressionEnabled>
         <PublishTrimmed>true</PublishTrimmed>
         <BlazorLinkOnBuild>true</BlazorLinkOnBuild>
