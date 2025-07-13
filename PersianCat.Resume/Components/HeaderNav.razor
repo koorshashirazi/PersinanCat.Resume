@@ -1,0 +1,71 @@
+@inject IStringLocalizer<HeaderNav> L
+@inject IGoogleAnalyticsService GoogleAnalyticsService
+
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg" id="header-nav" role="navigation">
+        <div class="container">
+            <a class="navbar-brand site-title mb-0" href="/">
+                <img src="./images/logo.png" width="50" height="50" alt="@L["SiteTitle"]"
+                    class="d-inline-block align-top me-2 rounded-circle" />
+                @L["SiteTitle"]
+            </a>
+            <button title="@L["NavigationMenu"]" class="navbar-toggler" @onclick="ToggleNavMenu" type="button"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse @NavMenuCssClass nav-scrollable">
+                <ul class="navbar-nav ms-auto me-2">
+                    <li class="nav-item">
+                        <a class="nav-link" @onclick='() => EventAction(About)' href="@About" data-testid="nav-link-about">@L["About"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @onclick='() => EventAction(Specializations)'
+                            href="@Specializations" data-testid="nav-link-specializations">@L["Specializations"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @onclick='() => EventAction(Skills)' href="@Skills" data-testid="nav-link-skills">@L["Skills"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @onclick='() => EventAction(Experience)'
+                            href="@Experience" data-testid="nav-link-experience">@L["Experience"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @onclick='() => EventAction(Roadmap)' href="@Roadmap" data-testid="nav-link-roadmap">@L["Roadmap"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @onclick='() => EventAction(Contact)' href="@Contact" data-testid="nav-link-contact">@L["Contact"]</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <LanguageSwitcher />
+
+                    <ThemeSwitcher />
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+@code {
+    private const string About = "#about";
+    private const string Specializations = "#specializations";
+    private const string Skills = "#skills";
+    private const string Experience = "#experience";
+    private const string Roadmap = "#roadmap";
+    private const string Contact = "#contact";
+
+    private bool _collapseNavMenu = true;
+    private string? NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
+
+
+    private void ToggleNavMenu()
+    {
+        _collapseNavMenu = !_collapseNavMenu;
+    }
+
+    private void EventAction(string name)
+    {
+        Task.Run(async () => await GoogleAnalyticsService.TrackEvent("navigation", "click",
+        name).ConfigureAwait(false)).ConfigureAwait(false);
+    }
+}

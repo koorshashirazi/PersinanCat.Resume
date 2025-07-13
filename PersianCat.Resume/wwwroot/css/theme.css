@@ -1,0 +1,235 @@
+/* Light theme (default) */
+:root,
+body.light {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --header-bg: #f8f9fa;
+    --nav-link-color: rgba(0, 0, 0, 0.8);
+    --nav-link-hover-color: rgba(0, 0, 0, 0.6);
+    --footer-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --card-border: #f6e05e;
+
+    --experience-card-bg: #ffffff;
+    --experience-card-border: #e0e0e0;
+    --experience-card-title: #333333;
+    --experience-card-text: #555555;
+    --experience-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --experience-card-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --experience-card-header-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --experience-card-header-text: #ffffff;
+    --experience-card-header-img-filter: brightness(1) invert(0);
+    --experience-card-body-bg: #ffffff;
+
+    --roadmap-must-have-bg: #a9ffe5;
+    --roadmap-must-have-border: #20c997;
+    --roadmap-good-have-bg: #dbeafe;
+    --roadmap-good-have-border: #3b82f6;
+    --roadmap-optional-bg: #ffebdc;
+    --roadmap-optional-border: #f97316;
+
+    --roadmap-green-dot: #20c997;
+    --roadmap-blue-dot: #3b82f6;
+    --roadmap-orange-dot: #f97316;
+
+    --dropdown-menu: #ffffff;
+    --dropdown-menu-border: #f4f6f8;
+    --dropdown-link-color: rgba(0, 0, 0, 0.8);
+    --dropdown-link-hover-color: rgba(0, 0, 0, 0.6);
+    --dropdown-link-active-color: rgba(0, 0, 0, 0.9);
+    --dropdown-link-active-bg: #f4f6f8;
+    --dropdown-link-hover-bg: #f4f6f8;
+    --dropdown-link-disabled-color: rgba(0, 0, 0, 0.5);
+    --dropdown-link-disabled-bg: transparent;
+    --dropdown-link-disabled-border: transparent;
+
+    --item-box-shadow: #667eea;
+
+    --scrollbar-thumb-bg: #f6e05e;
+    --scrollbar-thumb-hover-bg: rgba(0, 0, 0, 0.3);
+    --scrollbar-thumb-active-bg: rgba(0, 0, 0, 0.4);
+
+    --glass-loader-bg: var(--background-color);
+    --glass-loader-text-color: var(--text-color);
+    --glass-loader-box-bg: #ffffff;
+    --glass-loader-box-shadow: #667eea;
+    --glass-loader-border: #f6e05e;
+    --glass-loader-circle-stroke: rgba(255, 255, 255, 0.2);
+    --glass-loader-circle-fg-stroke: #f6e05e;
+
+
+}
+
+/* Dark theme */
+body.dark {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #2c2c2c;
+    --nav-link-color: rgba(255, 255, 255, 0.8);
+    --nav-link-hover-color: rgba(255, 255, 255, 0.6);
+    --footer-bg: #2c2c2c;
+    --card-bg: #2c2c2c;
+    --card-border: #f6e05e;
+
+    --experience-card-bg: #2c2c2c;
+    --experience-card-border: #3a3a3a;
+    --experience-card-title: #e0e0e0;
+    --experience-card-text: #b0b0b0;
+    --experience-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    --experience-card-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.5);
+    --experience-card-header-bg: linear-gradient(135deg, #3bafda 0%, #2c2c2c 100%);
+    --experience-card-header-text: #e0e0e0;
+    --experience-card-header-img-filter: brightness(1) invert(0);
+    --experience-card-body-bg: #2c2c2c;
+
+    --roadmap-must-have-bg: #1e3a2d;
+    --roadmap-must-have-border: #20c997;
+    --roadmap-good-have-bg: #1e2a3a;
+    --roadmap-good-have-border: #3b82f6;
+    --roadmap-optional-bg: #3a2a1e;
+    --roadmap-optional-border: #f97316;
+
+    --roadmap-green-dot: #20c997;
+    --roadmap-blue-dot: #3b82f6;
+    --roadmap-orange-dot: #f97316;
+
+    --dropdown-menu: #2c2c2c;
+    --dropdown-menu-border: #3a3a3a;
+    --dropdown-link-color: rgba(255, 255, 255, 0.8);
+    --dropdown-link-hover-color: rgba(255, 255, 255, 0.6);
+    --dropdown-link-active-color: rgba(255, 255, 255, 0.9);
+    --dropdown-link-active-bg: #3a3a3a;
+    --dropdown-link-hover-bg: #3a3a3a;
+    --dropdown-link-disabled-color: rgba(255, 255, 255, 0.5);
+    --dropdown-link-disabled-bg: transparent;
+    --dropdown-link-disabled-border: transparent;
+
+    --item-box-shadow: #3bafda;
+
+    --glass-loader-bg: var(--background-color);
+    --glass-loader-text-color: var(--text-color);
+    --glass-loader-box-bg: #2c2c2c;
+    --glass-loader-box-shadow: #667eea;
+    --glass-loader-border: #f6e05e;
+    --glass-loader-circle-stroke: rgba(255, 255, 255, 0.2);
+    --glass-loader-circle-fg-stroke: #f6e05e;
+
+
+}
+
+/* System theme - follows prefers-color-scheme */
+@media (prefers-color-scheme: light) {
+    body.system {
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --header-bg: #f8f9fa;
+        --nav-link-color: rgba(0, 0, 0, 0.8);
+        --nav-link-hover-color: rgba(0, 0, 0, 0.6);
+        --footer-bg: #f8f9fa;
+        --card-bg: #ffffff;
+        --card-border: #f6e05e;
+
+        --experience-card-bg: #ffffff;
+        --experience-card-border: #e0e0e0;
+        --experience-card-title: #333333;
+        --experience-card-text: #555555;
+        --experience-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        --experience-card-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+        --experience-card-header-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --experience-card-header-text: #ffffff;
+        --experience-card-header-img-filter: brightness(1) invert(0);
+        --experience-card-body-bg: #ffffff;
+
+        --roadmap-must-have-bg: #a9ffe5;
+        --roadmap-must-have-border: #20c997;
+        --roadmap-good-have-bg: #dbeafe;
+        --roadmap-good-have-border: #3b82f6;
+        --roadmap-optional-bg: #ffebdc;
+        --roadmap-optional-border: #f97316;
+
+        --roadmap-green-dot: #20c997;
+        --roadmap-blue-dot: #3b82f6;
+        --roadmap-orange-dot: #f97316;
+
+        --dropdown-menu: #ffffff;
+        --dropdown-menu-border: #f4f6f8;
+        --dropdown-link-color: rgba(0, 0, 0, 0.8);
+        --dropdown-link-hover-color: rgba(0, 0, 0, 0.6);
+        --dropdown-link-active-color: rgba(0, 0, 0, 0.9);
+        --dropdown-link-active-bg: #f4f6f8;
+        --dropdown-link-hover-bg: #f4f6f8;
+        --dropdown-link-disabled-color: rgba(0, 0, 0, 0.5);
+        --dropdown-link-disabled-bg: transparent;
+        --dropdown-link-disabled-border: transparent;
+
+        --item-box-shadow: #667eea;
+
+        --scrollbar-thumb-bg: #f6e05e;
+        --scrollbar-thumb-hover-bg: rgba(0, 0, 0, 0.3);
+        --scrollbar-thumb-active-bg: rgba(0, 0, 0, 0.4);
+
+        --glass-loader-bg: var(--background-color);
+        --glass-loader-text-color: var(--text-color);
+        --glass-loader-box-bg: #ffffff;
+        --glass-loader-box-shadow: #667eea;
+        --glass-loader-border: #f6e05e;
+        --glass-loader-circle-stroke: rgba(255, 255, 255, 0.2);
+        --glass-loader-circle-fg-stroke: #f6e05e;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body.system {
+        --background-color: #1a1a1a;
+        --text-color: #e0e0e0;
+        --header-bg: #2c2c2c;
+        --nav-link-color: rgba(255, 255, 255, 0.8);
+        --nav-link-hover-color: rgba(255, 255, 255, 0.6);
+        --footer-bg: #2c2c2c;
+        --card-bg: #2c2c2c;
+        --card-border: #f6e05e;
+
+        --experience-card-bg: #2c2c2c;
+        --experience-card-border: #3a3a3a;
+        --experience-card-title: #e0e0e0;
+        --experience-card-text: #b0b0b0;
+        --experience-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        --experience-card-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.5);
+        --experience-card-header-bg: linear-gradient(135deg, #3bafda 0%, #2c2c2c 100%);
+        --experience-card-header-text: #e0e0e0;
+        --experience-card-header-img-filter: brightness(1) invert(0);
+        --experience-card-body-bg: #2c2c2c;
+
+        --roadmap-must-have-bg: #1e3a2d;
+        --roadmap-must-have-border: #20c997;
+        --roadmap-good-have-bg: #1e2a3a;
+        --roadmap-good-have-border: #3b82f6;
+        --roadmap-optional-bg: #3a2a1e;
+        --roadmap-optional-border: #f97316;
+
+        --roadmap-green-dot: #20c997;
+        --roadmap-blue-dot: #3b82f6;
+        --roadmap-orange-dot: #f97316;
+
+        --dropdown-menu: #2c2c2c;
+        --dropdown-menu-border: #3a3a3a;
+        --dropdown-link-color: rgba(255, 255, 255, 0.8);
+        --dropdown-link-hover-color: rgba(255, 255, 255, 0.6);
+        --dropdown-link-active-color: rgba(255, 255, 255, 0.9);
+        --dropdown-link-active-bg: #3a3a3a;
+        --dropdown-link-hover-bg: #3a3a3a;
+        --dropdown-link-disabled-color: rgba(255, 255, 255, 0.5);
+        --dropdown-link-disabled-bg: transparent;
+        --dropdown-link-disabled-border: transparent;
+
+        --item-box-shadow: #3bafda;
+
+        --glass-loader-bg: var(--background-color);
+        --glass-loader-text-color: var(--text-color);
+        --glass-loader-box-bg: #2c2c2c;
+        --glass-loader-box-shadow: #667eea;
+        --glass-loader-border: #f6e05e;
+        --glass-loader-circle-stroke: rgba(255, 255, 255, 0.2);
+        --glass-loader-circle-fg-stroke: #f6e05e;
+    }
+}

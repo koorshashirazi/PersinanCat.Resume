@@ -1,5 +1,3 @@
-using Microsoft.JSInterop;
-
 namespace PersianCat.Resume.Services;
 
 public sealed class TimeOnPageTracker
@@ -8,7 +6,7 @@ public sealed class TimeOnPageTracker
     private DateTime _pageEnterTime;
     private string? _currentPage;
 
-    public TimeOnPageTracker( IGoogleAnalyticsService analyticsService)
+    public TimeOnPageTracker(IGoogleAnalyticsService analyticsService)
     {
         _analyticsService = analyticsService ?? throw new ArgumentNullException(nameof(analyticsService));
     }
@@ -19,7 +17,7 @@ public sealed class TimeOnPageTracker
         {
             await EndTracking().ConfigureAwait(false);
         }
-        
+
         _currentPage = pageName;
         _pageEnterTime = DateTime.Now;
     }
@@ -30,13 +28,13 @@ public sealed class TimeOnPageTracker
             return;
 
         var timeSpent = (int)(DateTime.Now - _pageEnterTime).TotalSeconds;
-        
+
         await _analyticsService.TrackEvent(
-            "engagement", 
-            "time_on_page", 
-            _currentPage, 
+            "engagement",
+            "time_on_page",
+            _currentPage,
             timeSpent).ConfigureAwait(false);
-        
+
         _currentPage = null;
     }
 }

@@ -6,7 +6,7 @@ namespace PersianCat.Resume.Services;
 public interface IGoogleAnalyticsService
 {
     Task TrackPageView(string pagePath, string pageTitle);
-    Task TrackEvent(string eventCategory, string eventAction, string eventLabel = null, int? eventValue = null);
+    Task TrackEvent(string eventCategory, string eventAction, string? eventLabel = null, int? eventValue = null);
 }
 
 public sealed class GoogleAnalyticsService : IGoogleAnalyticsService
@@ -53,4 +53,3 @@ public sealed class GoogleAnalyticsService : IGoogleAnalyticsService
         }
     }
 }
-

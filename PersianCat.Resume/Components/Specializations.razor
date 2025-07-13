@@ -1,0 +1,75 @@
+@inject IStringLocalizer<Specializations> L
+
+<div class="section px-3 px-lg-4 pt-5 specializations" id="specializations">
+
+    <div class="container-narrow">
+        <div class="text-center mb-3">
+            <h2 class="marker marker-center" style="cursor: pointer" @onclick="ToggleDiv">@L["MySpecializations"]</h2>
+        </div>
+        <div class="@_toggleClass">
+            <div class="text-center">
+                <p class="mx-auto mb-3" style="max-width:600px">@L["SpecializationsDescription"]</p>
+            </div>
+            <div class="specializations-container" id="specializations-hover-container">
+                <div class="row py-3">
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="400"
+                         title="@L["DotNetDevelopmentTitle"]" style="--item-index: 0;">
+                        <img class="mb-2" src="images/services/dotnet.svg" width="96" height="96" alt="@L["AltAppDevelopment"]"/>
+                        <div class="h5 specialization-title">@L["DotNetDevelopment"]</div>
+                    </div>
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="400"
+                         title="@L["DatabaseTitle"]" style="--item-index: 1;">
+                        <img class="mb-2" src="images/services/database.svg" width="96" height="96" alt="@L["AltDatabase"]"/>
+                        <div class="h5 specialization-title">@L["Database"]</div>
+                    </div>
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="100"
+                         title="@L["SecurityAuthenticationTitle"]" style="--item-index: 2;">
+                        <img class="mb-2" src="images/services/security.svg" width="96" height="96" alt="@L["AltWebDesign"]"/>
+                        <div class="h5 specialization-title">@L["SecurityAuthentication"]</div>
+                    </div>
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="200"
+                         title="@L["CloudAzureTitle"]" style="--item-index: 3;">
+                        <img class="mb-2" src="images/services/azure.svg" width="96" height="96" alt="@L["AltCloudAzure"]"/>
+                        <div class="h5 specialization-title">@L["CloudAzure"]</div>
+                    </div>
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="200"
+                         title="@L["DevOpsTitle"]" style="--item-index: 4;">
+                        <img class="mb-2" src="images/services/azure-devops.svg" width="96" height="96" alt="@L["AltDevOps"]"/>
+                        <div class="h5 specialization-title">@L["DevOps"]</div>
+                    </div>
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="300"
+                         title="@L["MicroservicesTitle"]" style="--item-index: 5;">
+                        <img class="mb-2" src="images/services/microservies.svg" width="96" height="96"
+                             alt="@L["AltMicroservices"]"/>
+                        <div class="h5 specialization-title">@L["Microservices"]</div>
+                    </div>
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="400"
+                         title="@L["SoftwareArchitectureTitle"]" style="--item-index: 6;">
+                        <img class="mb-2" src="images/services/architecture.svg" width="96" height="96"
+                             alt="@L["AltSoftwareArchitecture"]"/>
+                        <div class="h5 specialization-title">@L["SoftwareArchitecture"]</div>
+                    </div>
+                    <div class="col-md-3 text-center specialization-item" data-aos="fade-up" data-aos-delay="400"
+                         title="@L["TestingQualityTitle"]" style="--item-index: 7;">
+                        <img class="mb-2" src="images/services/testing.svg" width="96" height="96" alt="@L["AltTestingQuality"]"/>
+                        <div class="h5 specialization-title">@L["TestingQuality"]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@code {
+    private bool _isVisible = true;
+    private string _toggleClass = "expanded";
+
+    private void ToggleDiv()
+    {
+        _isVisible = !_isVisible;
+        _toggleClass = _isVisible ? "expanded" : "collapsed";
+    }
+}

@@ -1,0 +1,21 @@
+/* Hover-based Circular Animation Styles */
+.specializations-container {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+
+.specialization-item {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transform-origin: center;
+    z-index: 1; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specialization-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px var(--item-box-shadow);
+    z-index: 1;
+}

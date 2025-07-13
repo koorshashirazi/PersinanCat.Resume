@@ -1,0 +1,34 @@
+@inject NavigationManager NavigationManager
+@inject IGoogleAnalyticsService GoogleAnalyticsService
+@implements IDisposable
+
+@code {
+    private IDisposable? _handler;
+
+    protected override void OnInitialized()
+    {
+        _handler = NavigationManager.RegisterLocationChangingHandler(HandleLocationChanged);
+    }
+
+    private async ValueTask HandleLocationChanged(LocationChangingContext arg)
+    {
+        try
+        {
+            var uri = new Uri(arg.TargetLocation);
+            var pagePath = uri.LocalPath;
+            var pageTitle = pagePath.Split('/').LastOrDefault() ?? "Home";
+
+            await GoogleAnalyticsService.TrackPageView(pagePath, pageTitle).ConfigureAwait(false);
+        }
+        catch (Exception e)
+        {
+            await GoogleAnalyticsService.TrackEvent("error", "api_error", e.Message);
+        }
+    }
+
+    public void Dispose()
+    {
+        _handler?.Dispose();
+    }
+
+}

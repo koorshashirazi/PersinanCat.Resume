@@ -1,3 +1,12 @@
+@import url("./theme.css");
+@import url("./aos.css");
+@import url("./header-nav.css");
+@import url("./experience-card.css");
+@import url("./roadmap.css");
+@import url("./specializations.css");
+@import url("loading-progress.css");
+
+
 html, body {
   overflow-x: hidden;
 }
@@ -8,6 +17,35 @@ html, body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Custom scrollbar styles for Webkit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bg);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-bg-hover);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-bg) transparent;
+}
+
 
 /**
  * Disable smooth scrolling when users have prefers-reduced-motion enabled
@@ -25,12 +63,33 @@ html {
   scroll-margin-top: 2rem;
 }
 
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 /* Header */
+#header-nav.fixed-top {
+  position: fixed;
+  background: var(--background-color) !important;
+  padding-top: .36em;
+  padding-bottom: .36em;
+}
+
+.site-header {
+  background-color: var(--header-bg);
+}
+
+.site-footer {
+  background-color: var(--footer-bg);
+}
+
 .site-title {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 3rem;
   text-decoration: none;
+  color: var(--nav-link-color) !important;
 }
 
 @media (min-width: 48em) {
@@ -41,7 +100,13 @@ html {
 
 .nav-link {
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: var(--nav-link-color) !important;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.active .nav-link {
+  color: var(--nav-link-hover-color) !important;
 }
 
 .social-nav .nav-link {
@@ -50,10 +115,32 @@ html {
   line-height: 2.5rem;
 }
 
-.nav-link:hover,
-.nav-link:focus,
-.active .nav-link {
-  color: rgba(0, 0, 0, 0.6) !important;
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+.card-header,
+.card-footer {
+  background-color: var(--card-border);
+  border-color: var(--card-border);
+}
+
+
+.dropdown-menu {
+  background-color: var(--dropdown-menu);
+  border-color: var(--dropdown-menu-border);
+}
+
+.dropdown-item {
+  color: var(--dropdown-link-color) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus,
+.active .dropdown-item {
+  color: var(--dropdown-link-hover-color) !important;
+  background-color: var(--dropdown-link-hover-bg) !important;
 }
 
 /* Hero (intro) section */
@@ -192,13 +279,19 @@ footer a:not(.nav-link) {
 
 /* Scroll Top */
 #scrolltop {
-  display: block;
+  display: none;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s ease-in;
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+.scrolltop_show {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 #scrolltop .btn {
@@ -286,11 +379,25 @@ footer a:not(.nav-link) {
 
 .footer-social-nav {
   padding: 0 !important;
-  left: 45%;
   position: relative;
+}
+
+.footer-social-items {
+  display: inline-flex;
+  list-style: none;
 }
 
 [data-aos] {
   opacity: 1 !important;
   transform: translate(0) scale(1) !important;
+}
+
+/* Progress bar animations */
+.animated-progress {
+  width: 0% !important;
+  transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animated-progress.animate {
+  width: var(--target-width) !important;
 }

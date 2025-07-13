@@ -1,28 +1,79 @@
 ﻿@inherits LayoutComponentBase
 @inject JavaScriptInterop JsInterop
+@inject ToastService ToastService
+@inject LanguageService LanguageService
+@inject JavaScriptInterop JavaScriptInterop
+@inject NavigationManager NavigationManager
+@implements IDisposable
 
-<HeaderNav></HeaderNav>
 
-<div class="page-content">
-    
-    @Body
+<div>
+    <HeaderNav></HeaderNav>
 
-    <ScrollTop></ScrollTop>
+    <div class="page-content">
+
+        @Body
+
+        <ScrollTop></ScrollTop>
+    </div>
+
+    <Toast Message="@_toastMessage" Type="@_toastType" IsVisible="@_showToast" OnHide="HideToast" />
 </div>
 
 
 @code {
+
+
+
+    private string _toastMessage = string.Empty;
+    private ToastType _toastType = ToastType.Info;
+    private bool _showToast;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+
         if (firstRender)
         {
-            await JsInterop.InitializeAOS();
-            await JsInterop.HandleScroll();
-            await JsInterop.InitializeMasonry();
-            await JsInterop.InitializeBigPicture();
-            await JsInterop.InitializeGalleryPopup();
+            await base.OnAfterRenderAsync(firstRender);
+
+            await JavaScriptInterop.InitializeUiAsync();
         }
     }
+
+    protected override void OnInitialized()
+    {
+        ToastService.OnToastShow += ShowToast;
+        ToastService.OnToastHide += HideToast;
+        LanguageService.OnChange += ChangeLanguage;
+    }
+
+    private void ChangeLanguage()
+    {
+        NavigationManager.Refresh();
+    }
+
+    private Task ShowToast(ToastMessage message)
+    {
+        _toastMessage = message.Message;
+        _toastType = message.Type;
+        _showToast = true;
+        StateHasChanged();
+
+        return Task.CompletedTask;
+
+    }
+
+    private Task HideToast()
+    {
+        _showToast = false;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    public void Dispose()
+    {
+        ToastService.OnToastShow -= ShowToast;
+        ToastService.OnToastHide -= HideToast;
+        LanguageService.OnChange -= ChangeLanguage;
+    }
 }
-
-

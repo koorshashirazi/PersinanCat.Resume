@@ -1,12 +1,14 @@
 ﻿@page "/"
-@using PersianCat.Resume.Services
+
+@inject IStringLocalizer<Home> L
 
 @implements IAsyncDisposable
 
 @inject TimeOnPageTracker TimeTracker
 
 
-<PageTitle>@Title</PageTitle>
+
+<PageTitle>@L["PageTitle"]</PageTitle>
 
 
 <div id="content">
@@ -22,12 +24,10 @@
 
 @code {
 
-    private const string Title = "PersianCat";
-
     protected override async Task OnInitializedAsync()
     {
-        await TimeTracker.StartTracking(Title).ConfigureAwait(false);
         await base.OnInitializedAsync();
+        await TimeTracker.StartTracking(L["PageTitle"]).ConfigureAwait(false);
     }
 
 

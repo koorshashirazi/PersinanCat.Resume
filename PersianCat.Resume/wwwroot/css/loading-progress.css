@@ -1,0 +1,74 @@
+/* پایه برای کل صفحه */
+#glass-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+    backdrop-filter: blur(10px);
+    background: var(--glass-loader-bg);
+}
+
+/* جعبه شیشه‌ای */
+.glass-loader-box {
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 30px var(--glass-loader-box-shadow);
+    background: var(--glass-loader-box-bg);
+    border: 1px solid var(--glass-loader-border);
+}
+
+/* دایره */
+.glass-loader-circle {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+    margin: 0 auto;
+    stroke: var(--glass-loader-circle-stroke);
+}
+
+.glass-loader-circle circle {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+}
+
+.glass-loader-circle .fg {
+    stroke: var(--glass-loader-circle-fg-stroke);
+    stroke-dasharray: 251.2;
+    stroke-dashoffset: 251.2;
+    animation: glass-circle 1.4s ease-in-out infinite;
+}
+
+@keyframes glass-circle {
+    0% {
+        stroke-dashoffset: 251.2;
+    }
+
+    50% {
+        stroke-dashoffset: 62.8;
+    }
+
+    100% {
+        stroke-dashoffset: 251.2;
+    }
+}
+
+/* متن */
+.glass-loader-text {
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--glass-loader-text-color);
+}
+
+/* حالت محو شدن */
+#glass-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}

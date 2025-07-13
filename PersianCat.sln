@@ -2,15 +2,25 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersianCat.Resume", "PersianCat.Resume\PersianCat.Resume.csproj", "{813947AA-7DED-40CD-940E-7973EDC2F8ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersianCat.E2E.Tests", "PersianCat.E2E.Tests\PersianCat.E2E.Tests.csproj", "{6474522A-C692-4F13-996D-47462D81DB51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{96F134B9-98F1-4674-95F1-94D142FF81C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96F134B9-98F1-4674-95F1-94D142FF81C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F134B9-98F1-4674-95F1-94D142FF81C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{813947AA-7DED-40CD-940E-7973EDC2F8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{813947AA-7DED-40CD-940E-7973EDC2F8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{813947AA-7DED-40CD-940E-7973EDC2F8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{813947AA-7DED-40CD-940E-7973EDC2F8ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6474522A-C692-4F13-996D-47462D81DB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6474522A-C692-4F13-996D-47462D81DB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6474522A-C692-4F13-996D-47462D81DB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6474522A-C692-4F13-996D-47462D81DB51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

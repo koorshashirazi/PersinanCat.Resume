@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  persiancat.resume:
+    image: persiancat-e2e
+    build:
+      context: .
+      dockerfile: PersianCat.Resume/Dockerfile
+    ports:
+      - "8080:80"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

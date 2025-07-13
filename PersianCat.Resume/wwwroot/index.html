@@ -7,20 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Persian Cat</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto&display=swap"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap" media="print"
-          onload="this.media='all'"/>
+        onload="this.media='all'" />
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap" />
     </noscript>
     <link href="./css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
     <link href="./css/bootstrap-icons/bootstrap-icons.css?ver=1.2.0" rel="stylesheet">
     <link href="./css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
-    <link href="./css/aos.css?ver=1.2.0" rel="stylesheet">
-    <link href="./css/main.css?ver=1.2.0" rel="stylesheet">
     <link href="./css/blazor.css?ver=1.2.0" rel="stylesheet">
-    <link href="./css/roadmap.css?ver=1.2.0" rel="stylesheet">
+    <link href="./css/main.css?ver=1.2.0" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D1E4WT8H1B"></script>
@@ -45,54 +43,87 @@
 
 <body id="top">
 
-<div id="app">
-    <svg class="loading-progress">
-        <circle r="40%" cx="50%" cy="50%"/>
-        <circle r="40%" cx="50%" cy="50%"/>
-    </svg>
-    <div class="loading-progress-text"></div>
-</div>
+    <div id="app">
+        <div id="glass-loader">
+            <div class="glass-loader-box">
+                <img class="glass-loader-logo" src="images/logo.png" alt="Logo" />
+                <svg class="glass-loader-circle" viewBox="0 0 100 100">
+                    <circle class="bg" r="40" cx="50" cy="50" />
+                    <circle class="fg" r="40" cx="50" cy="50" />
+                </svg>
+                <div class="glass-loader-text" id="glass_loader_text_id">Loading...</div>
+            </div>
+        </div>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
-</div>
+    </div>
 
-<script defer>
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
 
+    <script src="./_framework/blazor.webassembly.js"></script>
+    <script src="./js/imagesloaded.pkgd.min.js"></script>
+    <script src="./js/masonry.pkgd.min.js"></script>
+    <script src="./js/BigPicture.min.js"></script>
+    <script src="./js/purecounter.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/aos.min.js"></script>
+    <script src="./js/skills-animation.js"></script>
+    <script src="./js/experience-animation.js"></script>
+    <script src="./js/urlMonitor.js"></script>
+    <script src="./js/main.js"></script>
 
-    function loadScript(src, callback) {
-        let script = document.createElement("script");
-        script.src = src;
-        if (callback) {
-            script.onload = callback;
+    <script id="scripts_area"></script>
+
+    <script defer>
+        let lastInsertedScript = null;
+
+        function loadScript(src, callback) {
+
+            let newScript = document.createElement("script");
+            newScript.src = src;
+            newScript.async = false;
+
+            if (callback) {
+                newScript.onload = callback;
+            }
+
+            var scripts_area = document.getElementById("scripts_area");
+
+            if (lastInsertedScript) {
+                lastInsertedScript.parentNode.insertBefore(newScript, lastInsertedScript.nextSibling);
+            } else {
+
+                scripts_area.insertAdjacentElement('afterend', newScript);
+            }
+
+            lastInsertedScript = newScript;
         }
-        document.body.appendChild(script);
-    }
 
-    window.onload = function () {
-        let scripts = [
-            "./_framework/blazor.webassembly.js",
-            "./scripts/imagesloaded.pkgd.min.js",
-            "./scripts/masonry.pkgd.min.js",
-            "./scripts/BigPicture.min.js",
-            "./scripts/purecounter.min.js",
-            "./scripts/bootstrap.bundle.min.js",
-            "./scripts/aos.min.js",
-            "./scripts/main.js"
-        ];
-        for (const scriptPath of scripts) {
-            loadScript(scriptPath);
-        }
-    };
+        document.addEventListener("DOMContentLoaded", function () {
 
-    if (window.location.pathname.includes("/")) {
-        // loadScript()
-    }
+            const loaderLanguageResources = {
+                'en-US': 'Loading...',
+                'fa-IR': 'بارگذاری...',
+                'de-DE': 'wird geladen...'
+            };
 
+            const scripts = [];
 
-</script>
+            for (const scriptPath of scripts) {
+                loadScript(scriptPath);
+            }
+
+            window.blazorInterop.initialize();
+
+            const language = localStorage.getItem('language') || 'en-US';
+            document.getElementById("glass_loader_text_id").innerText = loaderLanguageResources[language];
+
+        });
+
+    </script>
 
 </body>
 

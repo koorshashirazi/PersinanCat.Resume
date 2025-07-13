@@ -1,0 +1,20 @@
+@inject IStringLocalizer<Footer> L
+
+<footer class="pt-4 pb-4 text-center site-footer">
+    <div class="container">
+        <div class="my-3">
+            <div class="h4">@L["AuthorName"]</div>
+            <p>@L["FooterText"]</p>
+            <div class="footer-social-nav">
+                <SocialNav></SocialNav>
+            </div>
+        </div>
+        <div class="text-small">
+            <div class="mb-1">@L["Rights"]</div>
+        </div>
+    </div>
+</footer>
+
+@code {
+
+}

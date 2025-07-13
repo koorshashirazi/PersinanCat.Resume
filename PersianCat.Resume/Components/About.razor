@@ -1,0 +1,77 @@
+@inject IStringLocalizer<About> L
+
+<div class="section pt-4 px-3 px-lg-4" id="about">
+    <div class="container-narrow">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="h4 my-2" data-testid="greeting_testid">@L["Greeting"]</h2>
+                <p>@L["AboutMeText1"]</p>
+                <p>@L["AboutMeText2"]</p>
+                <p>@L["AboutMeText3"]</p>
+                <div class="row mt-3">
+                    <div class="col-sm-2">
+                        <div class="pb-1">@L["Age"]:</div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="pb-1 fw-bolder">@CalculateAge()</div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="pb-1">@L["Email"]:</div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="pb-1 fw-bolder">@L["EmailValue"]</div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="pb-1">@L["Address"]:</div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="pb-1 fw-bolder">@L["AddressValue"]</div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="pb-1">@L["Status"]:</div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="pb-1 fw-bolder text-success">@L["Availability"]</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 offset-md-1" data-aos="fade-left" data-aos-delay="100">
+                <img class="avatar img-fluid mt-2" src="images/avatar.jpg" width="400" height="400"
+                     alt="@L["AvatarAltText"]"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private readonly DateTime _birthDate = new(1987, 2, 6);
+
+    private string CalculateAge()
+    {
+        var today = DateTime.Today;
+        var age = today.Year - _birthDate.Year;
+
+        // Check if birthday hasn't occurred this year yet
+        if (_birthDate.Date > today.AddYears(-age))
+        {
+            age--;
+        }
+
+        // Return age formatted according to current culture
+        return CultureInfo.CurrentCulture.Name == "fa-IR" ? ToPersianNumbers(age.ToString("D", CultureInfo.InvariantCulture)) : age.ToString("D", CultureInfo.InvariantCulture);
+    }
+
+    private static string ToPersianNumbers(string input)
+    {
+        string[] englishDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        string[] persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+
+        for (int i = 0; i < 10; i++)
+        {
+            input = input.Replace(englishDigits[i], persianDigits[i]);
+        }
+
+        return input;
+    }
+
+}

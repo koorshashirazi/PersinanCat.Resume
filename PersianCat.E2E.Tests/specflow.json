@@ -1,0 +1,13 @@
+{
+  "bindingCulture": {
+    "name": "en-us"
+  },
+  "language": {
+    "feature": "en-us"
+  },
+  "stepAssemblies": [
+    {
+      "assembly": "PersianCat.E2E.Tests"
+    }
+  ]
+}

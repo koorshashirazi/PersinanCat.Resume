@@ -1,0 +1,40 @@
+@inject ThemeService ThemeService
+@implements IDisposable
+
+
+<div id="scrolltop" data-testid="scroll-to-top">
+    <a class="@(_scrollTopClass)" href="#top">
+        <span class="icon">
+            <i class="fas fa-angle-up fa-x"></i>
+        </span>
+    </a>
+</div>
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        ThemeService.OnChangedTheme += UpdateScrollTopClass;
+    }
+
+    private string _scrollTopClass = "btn btn-primary";
+
+    private void UpdateScrollTopClass(Theme theme)
+    {
+        _scrollTopClass = theme == Theme.Light ? "btn btn-primary" : "btn btn-outline-primary";
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        ThemeService.OnChangedTheme -= UpdateScrollTopClass;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            UpdateScrollTopClass(ThemeService.CurrentTheme);
+        }
+    }
+}

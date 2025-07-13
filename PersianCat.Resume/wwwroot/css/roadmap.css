@@ -6,7 +6,7 @@
 }
 
 .roadmap {
-    background: #ffffff;
+    background: var(--background-color);
     padding: 20px;
 }
 
@@ -58,8 +58,8 @@
 }
 
 .roadmap-sub-branch {
-    background: white;
-    border: 2px solid #64748b;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
     border-radius: 4px;
     padding: 10px 15px;
     font-size: 0.85rem;
@@ -74,7 +74,7 @@
     top: 50%;
     width: 15px;
     height: 2px;
-    background: #64748b;
+    background: var(--card-border);
 }
 
 .roadmap-branch-section::before {
@@ -84,7 +84,7 @@
     top: 43px;
     width: 2px;
     height: calc(100% - 60px);
-    background: #64748b;
+    background: var(--card-border);
 }
 
 .roadmap-branch-section::after {
@@ -94,7 +94,7 @@
     top: 43px;
     width: 215px;
     height: 2px;
-    background: #64748b;
+    background: var(--card-border);
 }
 
 .roadmap-sub-branch-group {
@@ -109,7 +109,7 @@
     top: 0;
     height: 100%;
     width: 2px;
-    background: #64748b;
+    background: var(--card-border);
 }
 
 .roadmap-legend {
@@ -119,7 +119,7 @@
     padding: 1rem;
     position: sticky;
     top: 0;
-    background: white;
+    background: var(--background-color);
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -138,30 +138,30 @@
 }
 
 .roadmap-green {
-    background: #20c997;
+    background: var(--roadmap-green-dot);
 }
 
 .roadmap-blue {
-    background: #3b82f6;
+    background: var(--roadmap-blue-dot);
 }
 
 .roadmap-orange {
-    background: #f97316;
+    background: var(--roadmap-orange-dot);
 }
 
 .roadmap-must-have {
-    background: #a9ffe5;
-    border-color: #20c997;
+    background: var(--roadmap-must-have-bg);
+    border-color: var(--roadmap-must-have-border);
 }
 
 .roadmap-good-have {
-    background: #dbeafe;
-    border-color: #3b82f6;
+    background: var(--roadmap-good-have-bg);
+    border-color: var(--roadmap-good-have-border);
 }
 
 .roadmap-optional {
-    background: #ffebdc;
-    border-color: #f97316;
+    background: var(--roadmap-optional-bg);
+    border-color: var(--roadmap-optional-border);
 }
 
 .roadmap-sub-branch:hover {
@@ -173,7 +173,7 @@
 
 .roadmap-sub-branch-details {
     font-size: 0.8rem;
-    color: #666;
+    color: var(--text-color);
     margin-top: 5px;
 }
 
@@ -188,7 +188,7 @@
 
   .roadmap-skill-level {
       font-size: 0.7rem;
-      color: #666;
+      color: var(--text-color);
       margin-top: 5px;
       font-style: italic;
   }

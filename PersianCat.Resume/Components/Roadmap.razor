@@ -1,0 +1,412 @@
+@inject IStringLocalizer<Roadmap> L
+
+<div class="roadmap-panel roadmap section px-3 px-lg-4 pt-5" id="roadmap">
+    <div class="text-center mb-5">
+        <h2 class="marker marker-center" style="cursor: pointer" @onclick="ToggleDiv">@L["MyRoadmap"]</h2>
+    </div>
+    <div class="roadmap-container row @_toggleClass">
+        <div class="roadmap-legend " data-aos="fade-right" data-aos-delay="100">
+            <div class="roadmap-legend-item">
+                <div class="roadmap-legend-dot roadmap-green"></div>
+                <span>@L["MustHave"]</span>
+            </div>
+            <div class="roadmap-legend-item">
+                <div class="roadmap-legend-dot roadmap-blue"></div>
+                <span>@L["GoodToHave"]</span>
+            </div>
+            <div class="roadmap-legend-item">
+                <div class="roadmap-legend-dot roadmap-orange"></div>
+                <span>@L["Optional"]</span>
+            </div>
+        </div>
+
+        <div class="roadmap-vertical-connector"></div>
+
+
+        <!-- Frontend Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="100">
+            <div class="roadmap-main-branch roadmap-must-have">@L["Frontend"]</div>
+            <div class="roadmap-sub-branches">
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["HtmlCssSass"]
+                    <div class="roadmap-sub-branch-details">@L["ResponsiveDesign"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["JavaScript"]
+                    <div class="roadmap-sub-branch-details">@L["JavaScriptDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["BuildTools"]
+                    <div class="roadmap-sub-branch-details">@L["BuildToolsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["AngularDevelopment"]
+                    <div class="roadmap-sub-branch-details">@L["AngularDevelopmentDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["TypeScript"]
+                    <div class="roadmap-sub-branch-details">@L["TypeScriptDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core ASP.NET Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">@L["AspNetCore"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["MvcWebApi"]
+                    <div class="roadmap-sub-branch-details">@L["MvcWebApiDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["MiddlewarePipeline"]
+                    <div class="sub-branch-details">@L["MiddlewarePipelineDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["DependencyInjection"]
+                    <div class="roadmap-sub-branch-details">@L["DependencyInjectionDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["ConfigurationSecurity"]
+                    <div class="roadmap-sub-branch-details">@L["ConfigurationSecurityDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["RazorPages"]
+                    <div class="roadmap-sub-branch-details">@L["RazorPagesDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["SignalR"]
+                    <div class="roadmap-sub-branch-details">@L["SignalRDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Development Section (New) -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">@L["ApiDevelopment"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["RestApis"]
+                    <div class="roadmap-sub-branch-details">@L["RestApisDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["GraphQL"]
+                    <div class="roadmap-sub-branch-details">@L["GraphQLDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["gRPC"]
+                    <div class="roadmap-sub-branch-details">@L["gRPCDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Patterns Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">@L["DesignPatterns"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["SolidPrinciples"]
+                    <div class="roadmap-sub-branch-details">@L["SolidPrinciplesDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["ArchitecturalPatterns"]
+                    <div class="roadmap-sub-branch-details">@L["ArchitecturalPatternsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["EnterprisePatterns"]
+                    <div class="roadmap-sub-branch-details">@L["EnterprisePatternsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Access Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">@L["DataAccessLayer"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["EntityFrameworkCore"]
+                    <div class="roadmap-sub-branch-details">@L["EntityFrameworkCoreDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["AdvancedEfCore"]
+                    <div class="roadmap-sub-branch-details">@L["AdvancedEfCoreDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["SqlServer"]
+                    <div class="roadmap-sub-branch-details">@L["SqlServerDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["MongoDb"]
+                    <div class="roadmap-sub-branch-details">@L["MongoDbDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["Redis"]
+                    <div class="roadmap-sub-branch-details">@L["RedisDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["Dapper"]
+                    <div class="roadmap-sub-branch-details">@L["DapperDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Security & Authentication Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">@L["SecurityAuthentication"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    @L["TokenBasedAuthentication"]
+                    <div class="roadmap-sub-branch-details">@L["TokenBasedAuthenticationDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    @L["OAuth2OpenIdConnect"]
+                    <div class="roadmap-sub-branch-details">@L["OAuth2OpenIdConnectDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    @L["AuthorizationRbac"]
+                    <div class="roadmap-sub-branch-details">@L["AuthorizationRbacDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    <div class="connection-dot"></div>
+                    @L["IdentityManagement"]
+                    <div class="roadmap-sub-branch-details">@L["IdentityManagementDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    <div class="connection-dot"></div>
+                    @L["SecurityBestPractices"]
+                    <div class="roadmap-sub-branch-details">@L["SecurityBestPracticesDetails"]</div>
+                    <div class="roadmap-skill-level">@L["FoundationLevel"]</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    <div class="connection-dot"></div>
+                    @L["ApiSecurity"]
+                    <div class="roadmap-sub-branch-details">@L["ApiSecurityDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-optional">
+                    <div class="connection-dot"></div>
+                    @L["Cryptography"]
+                    <div class="roadmap-sub-branch-details">@L["CryptographyDetails"]</div>
+                    <div class="skill-level">@L["ExpertLevel"]</div>
+                </div>
+
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    <div class="connection-dot"></div>
+                    @L["SecurityMonitoring"]
+                    <div class="roadmap-sub-branch-details">@L["SecurityMonitoringDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cloud & Azure Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">@L["CloudAzure"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["AzureServices"]
+                    <div class="roadmap-sub-branch-details">@L["AzureServicesDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["AzureStorage"]
+                    <div class="roadmap-sub-branch-details">@L["AzureStorageDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["AzureCosmosDb"]
+                    <div class="roadmap-sub-branch-details">@L["AzureCosmosDbDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["KeyVaultSecurity"]
+                    <div class="roadmap-sub-branch-details">@L["KeyVaultSecurityDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["MonitoringLogging"]
+                    <div class="roadmap-sub-branch-details">@L["MonitoringLoggingDetails"]</div>
+                    <div class="roadmap-skill-level">@L["ExpertLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DevOps Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">@L["DevOpsDeployment"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["CiCd"]
+                    <div class="roadmap-sub-branch-details">@L["CiCdDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["Containerization"]
+                    <div class="roadmap-sub-branch-details">@L["ContainerizationDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["CloudPlatforms"]
+                    <div class="roadmap-sub-branch-details">@L["CloudPlatformsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["ExpertLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Microservices Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">@L["MicroservicesArchitecture"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["MessageBrokers"]
+                    <div class="roadmap-sub-branch-details">@L["MessageBrokersDetails"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["ApiGateway"]
+                    <div class="roadmap-sub-branch-details">@L["ApiGatewayDetails"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["ServiceDiscovery"]
+                    <div class="roadmap-sub-branch-details">@L["ServiceDiscoveryDetails"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["Containerization"]
+                    <div class="roadmap-sub-branch-details">@L["ContainerizationMicroservicesDetails"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["DistributedTracing"]
+                    <div class="roadmap-sub-branch-details">@L["DistributedTracingDetails"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testing Section -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-must-have">@L["TestingQuality"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["UnitTesting"]
+                    <div class="roadmap-sub-branch-details">@L["UnitTestingDetails"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-must-have">
+                    @L["IntegrationTesting"]
+                    <div class="roadmap-sub-branch-details">@L["IntegrationTestingDetails"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["TestAutomation"]
+                    <div class="roadmap-sub-branch-details">@L["TestAutomationDetails"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["PerformanceTesting"]
+                    <div class="roadmap-sub-branch-details">@L["PerformanceTestingDetails"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Section (New) -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-good-have">@L["PerformanceOptimization"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["CachingStrategies"]
+                    <div class="roadmap-sub-branch-details">@L["CachingStrategiesDetails"]</div>
+                    <div class="roadmap-skill-level">@L["IntermediateLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-good-have">
+                    @L["MemoryManagement"]
+                    <div class="roadmap-sub-branch-details">@L["MemoryManagementDetails"]</div>
+                    <div class="roadmap-skill-level">@L["AdvancedLevel"]</div>
+                </div>
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["AdvancedPerformance"]
+                    <div class="roadmap-sub-branch-details">@L["AdvancedPerformanceDetails"]</div>
+                    <div class="roadmap-skill-level">@L["ExpertLevel"]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proposed Timeline... -->
+        <div class="roadmap-branch-section col-md-8 mb-5" data-aos="fade-left" data-aos-delay="200">
+            <div class="roadmap-main-branch roadmap-optional">@L["ProposedTimeline"]</div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["Next3Months"]
+                    <div class="roadmap-sub-branch-details">@L["Next3MonthsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["ExpertLevel"]</div>
+                </div>
+            </div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["Next6Months"]
+                    <div class="roadmap-sub-branch-details">@L["Next6MonthsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["ExpertLevel"]</div>
+                </div>
+            </div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["Next9Months"]
+                    <div class="roadmap-sub-branch-details">@L["Next9MonthsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["ExpertLevel"]</div>
+                </div>
+            </div>
+            <div class="roadmap-sub-branches">
+                <div class="roadmap-sub-branch roadmap-optional">
+                    @L["Next12Months"]
+                    <div class="roadmap-sub-branch-details">@L["Next12MonthsDetails"]</div>
+                    <div class="roadmap-skill-level">@L["ExpertLevel"]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ************************************************************************************************************* -->
+    <!-- END Roadmap -->
+
+</div>
+
+@code {
+    private bool _isVisible = true;
+    private string _toggleClass = "expanded";
+
+    private void ToggleDiv()
+    {
+        _isVisible = !_isVisible;
+        _toggleClass = _isVisible ? "expanded" : "collapsed";
+    }
+}

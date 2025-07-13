@@ -1,0 +1,14 @@
+@inject ThemeService ThemeService
+
+<div class="theme-switcher me-2">
+    <button @onclick="ToggleTheme" class="btn btn-outline-primary" data-testid="theme-toggle-button">
+        <i class="fas @(ThemeService.CurrentTheme == Theme.Light ? "fa-moon" : "fa-sun")"></i>
+    </button>
+</div>
+
+@code {
+    private async Task ToggleTheme()
+    {
+        await ThemeService.ToggleThemeAsync();
+    }
+}

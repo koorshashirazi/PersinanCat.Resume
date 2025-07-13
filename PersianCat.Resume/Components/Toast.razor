@@ -1,0 +1,79 @@
+@inject IStringLocalizer<Toast> L
+
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1050">
+    @if (IsVisible)
+    {
+        <div class="toast show @(IsVisible ? "visible" : "")" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true">
+            <div class="toast-header card-header">
+                <strong class="me-auto">
+                    @if (Type == ToastType.Success)
+                    {
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        @L["Success"]
+                    }
+                    else if (Type == ToastType.Error)
+                    {
+                        <i class="fas fa-exclamation-circle text-danger me-2"></i>
+                        @L["Error"]
+                    }
+                    else if (Type == ToastType.Warning)
+                    {
+                        <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                        @L["Warning"]
+                    }
+                    else
+                    {
+                        <i class="fas fa-info-circle text-info me-2"></i>
+                        @L["Info"]
+                    }
+                </strong>
+                <button type="button" class="btn-close" @onclick="Hide" aria-label="Close"></button>
+            </div>
+            <div class="toast-body card" data-testid="toast-message">
+                @Message
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string Message { get; set; } = string.Empty;
+    [Parameter] public ToastType Type { get; set; } = ToastType.Info;
+    [Parameter] public bool IsVisible { get; set; }
+    [Parameter] public EventCallback OnHide { get; set; }
+
+    private Timer? _autoHideTimer;
+
+    protected override void OnParametersSet()
+    {
+        if (IsVisible)
+        {
+            StartAutoHideTimer();
+        }
+    }
+
+    private void StartAutoHideTimer()
+    {
+        _autoHideTimer?.Dispose();
+        _autoHideTimer = new Timer(async void (_) =>
+        {
+            await InvokeAsync(Hide);
+        }, null, TimeSpan.FromSeconds(5), Timeout.InfiniteTimeSpan);
+    }
+
+    private async Task Hide()
+    {
+        IsVisible = false;
+        if (_autoHideTimer != null) await _autoHideTimer.DisposeAsync();
+        if (OnHide.HasDelegate)
+        {
+            await OnHide.InvokeAsync();
+        }
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        _autoHideTimer?.Dispose();
+    }
+}

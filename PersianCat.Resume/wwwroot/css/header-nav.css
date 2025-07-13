@@ -1,0 +1,21 @@
+
+.navbar-nav .nav-link {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px var(--item-box-shadow);
+    z-index: 1;
+}
+
+
+.dropdown-menu .dropdown-item {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px var(--item-box-shadow);
+    z-index: 1;
+}

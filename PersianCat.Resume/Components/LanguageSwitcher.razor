@@ -1,0 +1,57 @@
+@inject LanguageService Language
+@inject NavigationManager NavigationManager
+@inject IStringLocalizer<LanguageSwitcher> L
+
+@inject IJSRuntime Js
+
+
+<div class="dropdown me-2">
+    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuLanguageButton"
+        data-bs-toggle="dropdown" aria-expanded="false" data-testid="language-dropdown">
+        <img src="@GetFlagImageUrl(_currentCultureName)" alt="Flag"
+            style="width: 20px; height: 15px; vertical-align: middle;" />
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLanguageButton">
+        @foreach (var language in LanguageService.SupportedLanguages)
+        {
+            <li>
+                <a class="dropdown-item" @onclick="@(() => ChangeLanguage(language.Value))" href="javascript:void(0)"
+                    data-testid="@($"lang-{language.Value}")">
+                    <div class="d-flex align-items-center row">
+                        <div class="col-2">
+                            <img src="@GetFlagImageUrl(language.Value)" alt="Flag"
+                                style="width: 20px; height: 15px; vertical-align: middle;" />
+                        </div>
+                        <div class="col-2">
+                            <span class="language-name">@L[language.Key]</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
+@code {
+
+
+    private readonly string _currentCultureName = CultureInfo.CurrentCulture.Name;
+
+
+    private async Task ChangeLanguage(string cultureName)
+    {
+        await Language.SetLanguageAsync(cultureName);
+    }
+
+    private static string GetFlagImageUrl(string cultureName)
+    {
+        return cultureName switch
+        {
+            "en-US" => "./images/flags/en-US.svg",
+            "de-DE" => "./images/flags/de-DE.svg",
+            "fa-IR" => "./images/flags/fa-IR.svg",
+            _ => "./images/flags/globe.svg" // You might want a default globe icon or similar
+        };
+    }
+
+}
