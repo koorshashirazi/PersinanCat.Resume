@@ -51,7 +51,7 @@
           <circle class="bg" r="40" cx="50" cy="50" />
           <circle class="fg" r="40" cx="50" cy="50" />
         </svg>
-        <div class="glass-loader-text">Loading...</div>
+        <div class="glass-loader-text" id="glass_loader_text_id">Loading...</div>
       </div>
     </div>
 
@@ -63,71 +63,68 @@
     <span class="dismiss">🗙</span>
   </div>
 
+  <script src="./_framework/blazor.webassembly.js"></script>
+  <script src="./js/imagesloaded.pkgd.min.js"></script>
+  <script src="./js/masonry.pkgd.min.js"></script>
+  <script src="./js/BigPicture.min.js"></script>
+  <script src="./js/purecounter.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/aos.min.js"></script>
+  <script src="./js/skills-animation.js"></script>
+  <script src="./js/experience-animation.js"></script>
+  <script src="./js/urlMonitor.js"></script>
+  <script src="./js/main.js"></script>
+
+  <script id="scripts_area"></script>
+
   <script defer>
+    let lastInsertedScript = null;
+
     function loadScript(src, callback) {
-      let script = document.createElement("script");
-      script.src = src;
+
+      let newScript = document.createElement("script");
+      newScript.src = src;
+      newScript.async = false;
+
       if (callback) {
-        script.onload = callback;
+        newScript.onload = callback;
       }
-      document.body.appendChild(script);
-    }
 
-    function initializeTheme() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        if (savedTheme === 'system') {
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark');
-          } else {
-            document.body.classList.add('light');
-          }
-        } else {
-          document.body.classList.add(savedTheme);
-        }
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
+      var scripts_area = document.getElementById("scripts_area");
+
+      if (lastInsertedScript) {
+        lastInsertedScript.parentNode.insertBefore(newScript, lastInsertedScript.nextSibling);
       } else {
-        document.body.classList.add('light');
+
+        scripts_area.insertAdjacentElement('afterend', newScript);
       }
+
+      lastInsertedScript = newScript;
     }
 
-    window.onload = function () {
-      let scripts = [
-        "./_framework/blazor.webassembly.js",
-        "./js/imagesloaded.pkgd.min.js",
-        "./js/masonry.pkgd.min.js",
-        "./js/BigPicture.min.js",
-        "./js/purecounter.min.js",
-        "./js/bootstrap.bundle.min.js",
-        "./js/aos.min.js",
-        "./js/main.js",
-        "./js/skills-animation.js",
-        "./js/experience-animation.js"
-      ];
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const loaderLanguageResources = {
+        'en-US': 'Loading...',
+        'fa-IR': 'بارگذاری...',
+        'de-DE': 'wird geladen...'
+      };
+
+      const scripts = [];
 
       for (const scriptPath of scripts) {
         loadScript(scriptPath);
       }
-    };
 
-    if (window.location.pathname.includes("/")) {
-      // loadScript()
-    }
+      window.blazorInterop.initialize();
 
-    document.addEventListener("DOMContentLoaded", function () {
-      initializeTheme();
+      const language = localStorage.getItem('language') || 'en-US';
+      document.getElementById("glass_loader_text_id").innerText = loaderLanguageResources[language];
+
     });
 
-    window.removeGlassLoader = () => {
-      const loader = document.getElementById("glass-loader");
-      if (loader) {
-        loader.classList.add("hide");
-        setTimeout(() => loader.remove(), 300);
-      }
-    };
-
   </script>
+
 </body>
 
 </html>
