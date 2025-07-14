@@ -86,11 +86,11 @@
             // Show success toast
             await ToastService.ShowSuccess(L["MessageSent"]);
 
-            // Reset form
-            _contactForm = new ContactFormModel();
-
             var mailtoLink = $"mailto:{ContactEmail}?subject={_contactForm.Subject}&body={_contactForm.Message}";
             await JSRuntime.InvokeVoidAsync("open", mailtoLink, "_blank");
+
+            // Reset form
+            _contactForm = new ContactFormModel();
         }
         catch
         {

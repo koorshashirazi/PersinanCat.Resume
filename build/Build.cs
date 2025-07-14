@@ -16,7 +16,7 @@ class Build : NukeBuild
 
     [Solution] readonly Solution Solution;
 
-    [Parameter("Commit message")] readonly string CommitMessage = "build: Fix e2e tests";
+    [Parameter("Commit message")] readonly string CommitMessage = "build: Fix contact form";
 
     AbsolutePath SourceDirectory => RootDirectory;
     AbsolutePath TestsDirectory => RootDirectory / "tests";
