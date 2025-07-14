@@ -17,10 +17,10 @@ public class WebAppDriver : IAsyncDisposable
     {
         var playwright = await Playwright.CreateAsync();
         playwright.Selectors.SetTestIdAttribute("data-testid");
-        var browser = await playwright.Webkit.LaunchAsync(new BrowserTypeLaunchOptions
+        var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
-            Headless = false,
-            SlowMo = 3000
+            Headless = true,
+            Timeout = 6000
         });
         return new WebAppDriver(playwright, browser);
     }

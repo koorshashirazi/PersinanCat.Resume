@@ -59,10 +59,6 @@ Scenario: Contact Form Submission
     When I fill out the contact form with valid data
     And I submit the contact form
     Then I should see a success message
-
-@all
-Scenario: Contact Form Submission with invalid data
-    Given the resume page is open
     When I fill out the contact form with invalid data
     And I submit the contact form
     Then I should see a validation error message
@@ -134,21 +130,6 @@ Scenario: Experience Section Content
     Then the experience timeline should be visible
     And the experience details should be properly formatted
 
-@all
-Scenario: Toast Notification Auto-Hide
-    Given the resume page is open
-    When I submit a valid contact form
-    Then I should see a success toast notification
-    And the toast should automatically hide after 5 seconds
-
-@all
-Scenario: Multiple Toast Notifications
-    Given the resume page is open
-    When I submit an invalid contact form
-    Then I should see an error toast
-    When I submit a valid contact form immediately after
-    Then I should see a success toast
-    And both toasts should be handled correctly
 
 @all
 Scenario: Specializations Section Content

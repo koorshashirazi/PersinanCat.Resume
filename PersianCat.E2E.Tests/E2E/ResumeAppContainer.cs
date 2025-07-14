@@ -30,20 +30,22 @@ public class ResumeAppContainer : IAsyncDisposable
 
         logger.LogInformation("Building Resume app image from Dockerfile in {Directory}", dockerFileDirectoryPath);
 
+        const string imageName = "persiancat-resume:latest";
+
         // Build the image if it doesn't exist
         var image = new ImageFromDockerfileBuilder()
             .WithDockerfileDirectory(dockerFileDirectoryPath)
             .WithDockerfile("Dockerfile")
-            .WithName("persiancat-resume:latest")
+            .WithName(imageName)
             .WithDeleteIfExists(true)
             .Build();
 
         await image.CreateAsync();
 
         logger.LogInformation("Resume app image built successfully");
-      
+
         var container = new ContainerBuilder()
-            .WithImage(image)
+            .WithImage(imageName)
             .WithPortBinding(80, true)
             .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(80))
             .WithAutoRemove(true)

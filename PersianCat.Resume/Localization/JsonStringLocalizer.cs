@@ -67,10 +67,9 @@ public class JsonStringLocalizer : IStringLocalizer
             var json = await _httpClient.GetStringAsync(filePath);
             _resourceData = JsonSerializer.Deserialize<Dictionary<string, string>>(json, _serializerOptions) ?? [];
         }
-        catch (HttpRequestException ex)
+        catch
         {
             // Log or handle the error appropriately
-            Console.WriteLine($"Error loading localization file {filePath}: {ex.Message}");
             _resourceData = new Dictionary<string, string>(); // Initialize empty to prevent repeated attempts
         }
     }

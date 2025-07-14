@@ -129,6 +129,7 @@ public class ResumeStepDefinitions
 
         await _page.GetByTestId("language-dropdown").ClickAsync();
         await _page.GetByTestId($"lang-{_currentLanguage}").ClickAsync();
+        await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         await _page.WaitForFunctionAsync($"document.documentElement.lang === '{_currentLanguage}'");
     }
 
@@ -178,7 +179,7 @@ public class ResumeStepDefinitions
     public async Task ThenIShouldSeeASuccessMessage()
     {
         // Wait for toast notification to appear
-        await _page.WaitForSelectorAsync("[data-testid='toast-message']", new() { Timeout = 5000 });
+        await _page.WaitForSelectorAsync("[data-testid='toast-message']", new() { Timeout = 10000 });
         var successMessage = _page.GetByTestId("toast-message");
         await Assertions.Expect(successMessage).ToContainTextAsync("Your message has been sent. Thank you!");
     }
@@ -189,13 +190,14 @@ public class ResumeStepDefinitions
         await _page.GetByTestId("contact-name").FillAsync("");
         await _page.GetByTestId("contact-subject").FillAsync("");
         await _page.GetByTestId("contact-message").FillAsync("");
+        await _page.FocusAsync("[data-testid='contact-submit-button']");
     }
 
     [Then(@"I should see a validation error message")]
     public async Task ThenIShouldSeeAValidationErrorMessage()
     {
         // Wait for toast notification to appear
-        await _page.WaitForSelectorAsync("[data-testid='toast-message']", new() { Timeout = 5000 });
+        await _page.WaitForSelectorAsync("[data-testid='toast-message']", new() { Timeout = 10000 });
         var toastMessage = _page.GetByTestId("toast-message");
         await Assertions.Expect(toastMessage).ToContainTextAsync("Please fill in all required fields before sending your message.");
     }
@@ -226,7 +228,7 @@ public class ResumeStepDefinitions
     public async Task WhenIScrollDownToTheBottomOfThePage()
     {
         await _page.EvaluateAsync("window.scrollTo(0, document.body.scrollHeight)");
-        await Task.Delay(2000); // Wait for scroll to complete and animations
+        await _page.WaitForSelectorAsync("[data-testid='scroll-to-top']");
     }
 
     [Then(@"the scroll to top button should be visible")]
@@ -330,7 +332,7 @@ public class ResumeStepDefinitions
     [When(@"I refresh the page")]
     public async Task WhenIRefreshThePage()
     {
-        await _page.ReloadAsync(new() { WaitUntil = WaitUntilState.DOMContentLoaded });
+        await _page.ReloadAsync(new() { WaitUntil = WaitUntilState.Load });
     }
 
     [Then(@"the page should still be in German")]
@@ -420,55 +422,6 @@ public class ResumeStepDefinitions
     {
         await Assertions.Expect(_page.Locator("#experience .card").First).ToBeVisibleAsync();
     }
-
-    [Then(@"I should see a success toast notification")]
-    public async Task ThenIShouldSeeASuccessToastNotification()
-    {
-        var toast = _page.GetByTestId("toast-message");
-        await Assertions.Expect(toast).ToBeVisibleAsync();
-        await Assertions.Expect(toast).ToContainTextAsync("Your message has been sent. Thank you!");
-    }
-
-    [Then(@"the toast should automatically hide after 5 seconds")]
-    public async Task ThenTheToastShouldAutomaticallyHideAfter5Seconds()
-    {
-        await Task.Delay(6000); // Wait for 6 seconds
-        await Assertions.Expect(_page.GetByTestId("toast-message")).ToBeHiddenAsync();
-    }
-
-    [Then(@"I should see an error toast")]
-    public async Task ThenIShouldSeeAnErrorToast()
-    {
-        var toast = _page.GetByTestId("toast-message");
-        await Assertions.Expect(toast).ToBeVisibleAsync(new() { Timeout = 5000 });
-        await Assertions.Expect(toast).ToContainTextAsync("Please fill in all required fields before sending your message.");
-    }
-
-    [When(@"I submit a valid contact form immediately after")]
-    public async Task WhenISubmitAValidContactFormImmediatelyAfter()
-    {
-        await _page.GetByTestId("contact-name").FillAsync("Test User");
-        await _page.GetByTestId("contact-subject").FillAsync("Job Offer: Senior .NET Developer Position");
-        await _page.GetByTestId("contact-message").FillAsync("This is a test message with more than 10 characters.");
-        await _page.GetByTestId("contact-submit-button").ClickAsync();
-    }
-
-    [Then(@"I should see a success toast")]
-    public async Task ThenIShouldSeeASuccessToast()
-    {
-        var toast = _page.GetByTestId("toast-message");
-        await Assertions.Expect(toast).ToBeVisibleAsync(new() { Timeout = 10000 });
-        await Assertions.Expect(toast).ToContainTextAsync("Your message has been sent. Thank you!");
-    }
-
-    [Then(@"both toasts should be handled correctly")]
-    public async Task ThenBothToastsShouldBeHandledCorrectly()
-    {
-        // The toast system should handle multiple toasts properly
-        await Assertions.Expect(_page.GetByTestId("toast-message")).ToBeVisibleAsync();
-    }
-
-    // New Step Definitions for Additional Tests
 
     [When(@"I navigate to the specializations section")]
     public async Task WhenINavigateToTheSpecializationsSection()

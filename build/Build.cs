@@ -16,7 +16,7 @@ class Build : NukeBuild
 
     [Solution] readonly Solution Solution;
 
-    [Parameter("Commit message")] readonly string CommitMessage = "build: automatic commit";
+    [Parameter("Commit message")] readonly string CommitMessage = "build: Fix e2e tests";
 
     AbsolutePath SourceDirectory => RootDirectory;
     AbsolutePath TestsDirectory => RootDirectory / "tests";
@@ -49,7 +49,7 @@ class Build : NukeBuild
             Docker("builder prune --force");
 
             DockerBuild(s => s
-                .SetPath(".")
+                .SetPath(Solution.GetProject("PersianCat.Resume")?.Directory)
                 .SetFile(Solution.GetProject("PersianCat.Resume")?.Directory / "Dockerfile")
                 .SetTag("persiancat-resume:latest")
                 .EnableForceRm()
@@ -82,7 +82,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             Git("add .");
-            Git($"commit -m \"{CommitMessage}\"");
+            Git($"commit -m {CommitMessage}");
         });
 
     Target Push => _ => _
